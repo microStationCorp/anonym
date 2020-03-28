@@ -1,0 +1,13 @@
+body {
+    background: azure;
+}
+
+.myContainer {
+    margin-top: 100px;
+    justify-self: center;
+    font-size: .8rem;
+}
+
+.head{
+    font-size: 2rem;
+}

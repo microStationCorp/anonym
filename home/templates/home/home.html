@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block homeCss %}
+<link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+{% endblock homeCss %}
+
+{% block title %}
+home page
+{% endblock title %}
+
+{% block body %}
+
+<div class="myContainer">
+    <div class="row">
+        <div class="col">
+            <div class="card m1" style="min-width: 200px;">
+                <div class="card-text text-center head">login</div>
+                <div class="card-body">
+                    <span id="loginmsg" class="text-center" style="display:block;color: red; font-weight: bold;"></span>
+                    <div class="form-group">
+                        <label for="lusername">Username</label>
+                        <input type="text" name="lusername" class="form-control form-control-sm" id="lusername">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control form-control-sm" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="login()">Log In</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card m1" style="min-width: 200px;">
+                <div class="card-text text-center head">sign up</div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="fname">First Name</label>
+                                <input type="text" name="fname" class="form-control form-control-sm" id="fname">
+                                <span id="fmsg" style="color: red; font-weight: bold;"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="lname">Last Name</label>
+                                <input type="text" name="lname" class="form-control form-control-sm" id="lname">
+                                <span id="lmsg" style="color: red; font-weight: bold;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="susername">Username</label>
+                        <input type="text" name="susername" class="form-control form-control-sm" id="susername">
+                        <span id="umsg" style="color: red; font-weight: bold;"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="password1">create Password</label>
+                                    <input type="password" name="password1" class="form-control form-control-sm"
+                                        id="password1">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="password2">confirm Password</label>
+                                    <input type="password" name="password2" class="form-control form-control-sm"
+                                        id="password2">
+                                </div>
+                            </div>
+                        </div>
+                        <span id="pmsg" style="color: red; font-weight: bold;"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary" onclick="signup()">Sign Up</button>
+                    <span id="msg" class="text-center" style="color: rgb(9, 153, 9);"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+
+{% block homejs %}
+<script src="{% static 'js/signup.js' %}"></script>
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock homejs %}
