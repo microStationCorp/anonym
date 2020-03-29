@@ -8,6 +8,11 @@ body {
     font-size: .8rem;
 }
 
-.head{
+.head {
     font-size: 2rem;
 }
+
+.my_shadow {
+    box-shadow: 1px 1px 30px black;
+}
+
