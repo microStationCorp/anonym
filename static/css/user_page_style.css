@@ -1,11 +1,19 @@
-.title{
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap');
+
+body {
+    background: azure;
+}
+
+.title {
+    font-family: 'Baloo Thambi 2', cursive;
     font-size: 1.5rem;
 }
-.userinfo{
+
+.userinfo {
     margin: 10px 0px;
 }
 
-.msgs{
+.msgs {
     margin-bottom: 5px;
     margin-right: 5px;
     margin-left: 5px;

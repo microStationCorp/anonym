@@ -38,19 +38,29 @@
     <div class="container">
         <div class="card">
             <div class="card-text text-center title">
-                user detail
+                User Detail
             </div>
             <div class="userinfo">
                 <div class="row justify-content-center">
-                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center  text-white bg-success rounded m-1">name
+                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center  text-white bg-success rounded m-1">Name
                     </div>
-                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center  text-white bg-success rounded m-1">sujan
-                        mondal</div>
+                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center  text-white bg-success rounded m-1">
+                        {{fname|capfirst}} {{lname|capfirst}}</div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center text-white bg-success rounded m-1">username
+                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center text-white bg-success rounded m-1">Username
                     </div>
-                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center text-white bg-success rounded m-1">sherlock
+                    <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-center text-white bg-success rounded m-1">
+                        {{username}}
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-4 text-center text-white bg-success rounded my-1">Link
+                    </div>
+                </div>
+                <div class="row justify-content-center"">
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-4 text-center text-white bg-success rounded my-1">
+                        http://127.0.0.1:8000/message/{{username}}
                     </div>
                 </div>
             </div>
@@ -69,18 +79,23 @@
                     <div class="col-3">time</div>
                 </div>
                 <hr>
+                {% for msg in msgs %}
                 <div class="row justify-content-center">
-                    <div class="col-1">#</div>
+                    <div class="col-1">{{forloop.counter}}</div>
                     <div class="col-7">
-                        <a href="#"  data-toggle="modal" data-target="#exampleModalLong">message</a>
+                        <a href="#" data-toggle="modal" data-target="#msg-{{msg.id}}">{{msg.message}}</a>
                     </div>
-                    <div class="col-3">time</div>
+                    <div class="col-3 small">{{msg.dateOfPost|date:"h:i:s A d/m/Y"}}</div>
                 </div>
                 <hr>
+                {% empty %}
+                nothing to show
+                {% endfor %}
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+            {% for msg in msgs %}
+            <div class="modal fade" id="msg-{{msg.id}}" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -90,11 +105,12 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            message
+                            {{msg.message}}
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
         </div>
     </div>
